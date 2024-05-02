@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Blank </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>
+      Start with Ionic
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://ionicframework.com/docs/components"
+        >UI Components</a
+      >
+    </p>
+    <ion-button (click)="incrementarContador()">Incrementar</ion-button>
+    <ion-label>Contador: {{contador}}</ion-label>
+
+    @if (contador>=18){
+    <div class="row">
+      <ion-label>Felicidades, ya eres mayor de edad</ion-label>
+    </div>
+
+    }
+
+    <div class="row">
+      <ion-item *ngFor="let nombre of nombres">
+        <ion-label>{{ nombre }}</ion-label>
+      </ion-item>
+    </div>
+
+    <div class="row">
+      <ion-label position="floating">Número de teléfono</ion-label>
+      <ion-input
+        type="tel"
+        [(ngModel)]="phoneNumber"
+        name="phoneNumber"
+      ></ion-input>
+      <ion-label>{{ phoneNumber }}</ion-label>
+    </div>
+
+    <div class="row">
+      <div [ngClass]="{ 'aprobado': valor > 65, 'reprobado': valor <= 65 }">
+        El valor es: {{ valor }}
+      </div>
+    </div>
+
+    <div class="row">
+      <ion-label [ngStyle]="{ 'color': textColor }"
+        >Texto con color dinámico</ion-label
+      >
+    </div>
+
+    <div class="row">
+      <div [ngSwitch]="colorButton">
+        <ion-button *ngSwitchCase="'primary'">Primary Button</ion-button>
+        <ion-button *ngSwitchCase="'dark'">Dark Button</ion-button>
+        <ion-button *ngSwitchCase="'danger'">Danger Button</ion-button>
+        <ion-button *ngSwitchDefault>Default Button</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
